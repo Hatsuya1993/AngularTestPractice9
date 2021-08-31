@@ -20,28 +20,28 @@ describe('Home Page e2e', async  () => {
     it('Check if the total number of items displayed is correct on 1 page', async () => {
         browser.waitForAngularEnabled(false);
         let home = new Home()
-        let elementsResults = home.countTheNumberOfElements(home.allItems)
+        let elementsResults = await home.countTheNumberOfElements(home.allItems)
         expect(elementsResults.count()).toBe(9)
     })
 
     it('Check the numbers of items matches when phones is selected', async () => {
         let home = new Home()
         await home.clickOptions(home.phoneButtton)
-        let elementsResults = home.countTheNumberOfElements(home.allItems)
+        let elementsResults = await home.countTheNumberOfElements(home.allItems)
         expect(elementsResults.count()).toBe(7)
     })
 
     it('Check the numbers of items matches when laptop is selected', async () => {
         let home = new Home()
         await home.clickOptions(home.laptopButton)
-        let elementsResults = home.countTheNumberOfElements(home.allItems)
+        let elementsResults = await home.countTheNumberOfElements(home.allItems)
         expect(elementsResults.count()).toBe(6)
     })
 
     it('Check the numbers of items matches when monitors is selected', async () => {
         let home = new Home()
         await home.clickOptions(home.monitorsButton)
-        let elementsResults = home.countTheNumberOfElements(home.allItems)
+        let elementsResults = await home.countTheNumberOfElements(home.allItems)
         expect(elementsResults.count()).toBe(2)
     })
 
@@ -63,9 +63,18 @@ describe('Home Page e2e', async  () => {
         expect(results).toBeTruthy()
     })
     
-    fit('Check if the modal is displayed when the about us button is pressed', async () => {
+    it('Check if the modal is displayed when the about us button is pressed', async () => {
         let home = new Home()
         let results = await home.modalIsDiaplayed(home.signUp)
         expect(results).toBeTruthy()
+    })
+
+    it('Check for the popup message after sending message from contact button', async () => {
+        let home = new Home()
+        await home.contactFlow({email : "test@test.com", name : "testName", message : "testMessage"})
+        await browser.switchTo().alert().getText().then(data => {
+            expect(data).toBe("Thanks for the message!!")
+        })
+        await browser.switchTo().alert().accept()
     })
 })
