@@ -6,6 +6,11 @@ interface contactInfo {
     message: string;
 }
 
+interface loginInfo {
+    name: string;
+    password: string;
+}
+
 export class Home {
 
     until = protractor.ExpectedConditions;
@@ -27,8 +32,9 @@ export class Home {
     contactName : ElementFinder = $("#recipient-name")
     contactMessage : ElementFinder = $("#message-text")
     contactButtonForm : ElementFinder = element(by.buttonText("Send message"))
-
-
+    loginName : ElementFinder = $("#loginusername")
+    loginPassword : ElementFinder = $("#loginpassword")
+    loginButtonConfirm : ElementFinder = element(by.buttonText("Log in"))
 
     async countTheNumberOfElements(data : ElementArrayFinder | any) {
         await browser.wait(this.until.presenceOf(data), 3000, 'Element taking too long to appear in the DOM')
@@ -40,7 +46,7 @@ export class Home {
         await browser.sleep(3000)
     }
 
-    async modalIsDiaplayed(data : ElementFinder) : Promise<boolean> {
+    async modalIsDisplayed(data : ElementFinder) : Promise<boolean> {
         await data.click()
         await browser.wait(this.until.presenceOf(this.modal), 3000, 'Modal taking too long to appear in the DOM')
         return true
@@ -56,6 +62,17 @@ export class Home {
         await browser.wait(this.until.presenceOf(this.contactMessage), 5000, 'contactMessage taking too long to appear in the DOM')
         await this.contactMessage.sendKeys(data.message)
         await this.contactButtonForm.click()
+        await browser.sleep(3000);
+    }
+
+    async loginFlow(data: loginInfo) {
+        await this.loginButton.click()
+        await browser.sleep(3000);
+        await browser.wait(this.until.presenceOf(this.loginName), 5000, 'loginName taking too long to appear in the DOM')
+        await this.loginName.sendKeys(data.name)
+        await browser.wait(this.until.presenceOf(this.loginPassword), 5000, 'loginPassword taking too long to appear in the DOM')
+        await this.loginPassword.sendKeys(data.password)
+        await this.loginButtonConfirm.click()
         await browser.sleep(3000);
     }
 

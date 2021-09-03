@@ -47,25 +47,25 @@ describe('Home Page e2e', async  () => {
 
     it('Check if the modal is displayed when the contact button is pressed', async () => {
         let home = new Home()
-        let results = await home.modalIsDiaplayed(home.contactButton)
+        let results = await home.modalIsDisplayed(home.contactButton)
         expect(results).toBeTruthy()
     })
 
     it('Check if the modal is displayed when the about us button is pressed', async () => {
         let home = new Home()
-        let results = await home.modalIsDiaplayed(home.aboutUsButton)
+        let results = await home.modalIsDisplayed(home.aboutUsButton)
         expect(results).toBeTruthy()
     })
 
     it('Check if the modal is displayed when the login button is pressed', async () => {
         let home = new Home()
-        let results = await home.modalIsDiaplayed(home.loginButton)
+        let results = await home.modalIsDisplayed(home.loginButton)
         expect(results).toBeTruthy()
     })
     
     it('Check if the modal is displayed when the about us button is pressed', async () => {
         let home = new Home()
-        let results = await home.modalIsDiaplayed(home.signUp)
+        let results = await home.modalIsDisplayed(home.signUp)
         expect(results).toBeTruthy()
     })
 
@@ -74,6 +74,21 @@ describe('Home Page e2e', async  () => {
         await home.contactFlow({email : "test@test.com", name : "testName", message : "testMessage"})
         await browser.switchTo().alert().getText().then(data => {
             expect(data).toBe("Thanks for the message!!")
+        })
+        await browser.switchTo().alert().accept()
+    })
+
+    it('Check the url when user is redirected to the cart website', async () => {
+        let home = new Home()
+        await home.cartButton.click()
+        expect(await browser.getCurrentUrl()).toContain("cart")
+    })
+
+    it('Check the popup when no login details are added', async () => {
+        let home = new Home()
+        await home.loginFlow({name: "", password: ""});
+        await browser.switchTo().alert().getText().then(data => {
+            expect(data).toBe("Please fill out Username and Password.")
         })
         await browser.switchTo().alert().accept()
     })
