@@ -1,0 +1,54 @@
+[2021-09-04T22:02:52.729] [DEBUG] default - https://www.demoblaze.com/index.html
+[2021-09-04T23:00:15.790] [DEBUG] default - 9
+[2021-09-04T23:01:21.320] [DEBUG] default - Number of items 9
+[2021-09-05T06:52:55.072] [DEBUG] default - https://www.demoblaze.com/index.html
+[2021-09-05T06:55:45.630] [DEBUG] default - https://www.demoblaze.com/index.html
+[2021-09-05T06:56:22.047] [DEBUG] default - https://www.demoblaze.com/index.html
+[2021-09-05T06:58:07.259] [DEBUG] default - https://www.demoblaze.com/index.html
+[2021-09-05T06:58:10.452] [DEBUG] default - Number of items 9
+[2021-09-05T06:58:16.737] [DEBUG] default - Number of items 7
+[2021-09-05T06:58:23.624] [DEBUG] default - Number of items 11
+[2021-09-05T06:58:23.904] [DEBUG] default - modal is displayed when contact button pressed true
+[2021-09-05T06:58:24.157] [DEBUG] default - modal is displayed when about us button pressed true
+[2021-09-05T06:58:24.391] [DEBUG] default - modal is displayed when login button pressed true
+[2021-09-05T06:58:24.637] [DEBUG] default - modal is displayed when sign up button pressed true
+[2021-09-05T06:58:31.185] [DEBUG] default - sending message from contact button Thanks for the message!!
+[2021-09-05T06:58:32.414] [DEBUG] default - https://www.demoblaze.com/cart.html
+[2021-09-05T06:58:38.851] [DEBUG] default - No login details are added Please fill out Username and Password.
+[2021-09-05T06:58:45.331] [DEBUG] default - Login details are added User does not exist.
+[2021-09-05T07:07:30.100] [DEBUG] default - https://www.demoblaze.com/index.html
+[2021-09-05T07:07:33.273] [DEBUG] default - Number of items 9
+[2021-09-05T07:07:39.527] [DEBUG] default - Number of items 7
+[2021-09-05T07:07:46.406] [DEBUG] default - Number of items 2
+[2021-09-05T07:07:46.680] [DEBUG] default - modal is displayed when contact button pressed true
+[2021-09-05T07:07:46.930] [DEBUG] default - modal is displayed when about us button pressed true
+[2021-09-05T07:07:47.184] [DEBUG] default - modal is displayed when login button pressed true
+[2021-09-05T07:07:47.418] [DEBUG] default - modal is displayed when sign up button pressed true
+[2021-09-05T07:07:53.979] [DEBUG] default - sending message from contact button Thanks for the message!!
+[2021-09-05T07:07:55.307] [DEBUG] default - https://www.demoblaze.com/cart.html
+[2021-09-05T07:08:01.727] [DEBUG] default - No login details are added Please fill out Username and Password.
+[2021-09-05T07:08:08.203] [DEBUG] default - Login details are added User does not exist.
+[2021-09-05T07:10:34.522] [DEBUG] default - https://www.demoblaze.com/index.html
+[2021-09-05T07:10:37.702] [DEBUG] default - Number of items 9
+[2021-09-05T07:10:45.954] [DEBUG] default - Number of items 7
+[2021-09-05T07:10:54.750] [DEBUG] default - Number of items 11
+[2021-09-05T07:10:55.008] [DEBUG] default - modal is displayed when contact button pressed true
+[2021-09-05T07:10:55.294] [DEBUG] default - modal is displayed when about us button pressed true
+[2021-09-05T07:10:55.570] [DEBUG] default - modal is displayed when login button pressed true
+[2021-09-05T07:10:55.832] [DEBUG] default - modal is displayed when sign up button pressed true
+[2021-09-05T07:11:02.789] [DEBUG] default - sending message from contact button Thanks for the message!!
+[2021-09-05T07:11:03.708] [DEBUG] default - https://www.demoblaze.com/cart.html
+[2021-09-05T07:11:10.155] [DEBUG] default - No login details are added Please fill out Username and Password.
+[2021-09-05T07:11:16.997] [DEBUG] default - Login details are added User does not exist.
+[2021-09-05T07:17:04.629] [DEBUG] default - https://www.demoblaze.com/index.html
+[2021-09-05T07:17:07.844] [DEBUG] default - Number of items 9
+[2021-09-05T07:17:21.105] [DEBUG] default - Number of items 7
+[2021-09-05T07:17:35.122] [DEBUG] default - Number of items 2
+[2021-09-05T07:17:35.763] [DEBUG] default - modal is displayed when contact button pressed true
+[2021-09-05T07:17:35.995] [DEBUG] default - modal is displayed when about us button pressed true
+[2021-09-05T07:17:36.212] [DEBUG] default - modal is displayed when login button pressed true
+[2021-09-05T07:17:36.418] [DEBUG] default - modal is displayed when sign up button pressed true
+[2021-09-05T07:17:42.931] [DEBUG] default - sending message from contact button Thanks for the message!!
+[2021-09-05T07:17:43.846] [DEBUG] default - https://www.demoblaze.com/cart.html
+[2021-09-05T07:17:50.277] [DEBUG] default - No login details are added Please fill out Username and Password.
+[2021-09-05T07:17:57.282] [DEBUG] default - Login details are added User does not exist.

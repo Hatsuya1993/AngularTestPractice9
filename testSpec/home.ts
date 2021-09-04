@@ -1,5 +1,6 @@
 import { browser } from 'protractor';
 import {Home} from '../pageObject/home'
+import {Helper} from '../helper/helper'
 
 describe('Home Page e2e', async  () => {
 
@@ -9,64 +10,71 @@ describe('Home Page e2e', async  () => {
         await home.website
     })
 
-    afterEach(async () => {
-        await browser.close()
-    })
-
     it('Check if the correct website is loaded through the link', async () => {
-        expect(await browser.getCurrentUrl()).toContain("index")
+        await browser.getCurrentUrl().then(data => {
+            expect(data).toContain("index")
+            Helper.logsData(data)
+        })
     })
 
     it('Check if the total number of items displayed is correct on 1 page', async () => {
-        browser.waitForAngularEnabled(false);
         let home = new Home()
         let elementsResults = await home.countTheNumberOfElements(home.allItems)
-        expect(elementsResults.count()).toBe(9)
+        expect(await elementsResults).toBe(9)
+        Helper.logsData("Number of items"+" "+ await elementsResults)
+
     })
 
     it('Check the numbers of items matches when phones is selected', async () => {
         let home = new Home()
         await home.clickOptions(home.phoneButtton)
         let elementsResults = await home.countTheNumberOfElements(home.allItems)
-        expect(elementsResults.count()).toBe(7)
+        expect(elementsResults).toBe(7)
+        Helper.logsData("Number of items"+" "+ await elementsResults)
     })
 
     it('Check the numbers of items matches when laptop is selected', async () => {
         let home = new Home()
         await home.clickOptions(home.laptopButton)
         let elementsResults = await home.countTheNumberOfElements(home.allItems)
-        expect(elementsResults.count()).toBe(6)
+        expect(elementsResults).toBe(6)
+        Helper.logsData("Number of items"+" "+ await elementsResults)
     })
 
     it('Check the numbers of items matches when monitors is selected', async () => {
         let home = new Home()
         await home.clickOptions(home.monitorsButton)
         let elementsResults = await home.countTheNumberOfElements(home.allItems)
-        expect(elementsResults.count()).toBe(2)
+        expect(elementsResults).toBe(2)
+        Helper.logsData("Number of items"+" "+ await elementsResults)
     })
 
     it('Check if the modal is displayed when the contact button is pressed', async () => {
         let home = new Home()
         let results = await home.modalIsDisplayed(home.contactButton)
         expect(results).toBeTruthy()
+        Helper.logsData("modal is displayed when contact button pressed"+" "+ await results)
     })
 
     it('Check if the modal is displayed when the about us button is pressed', async () => {
         let home = new Home()
         let results = await home.modalIsDisplayed(home.aboutUsButton)
         expect(results).toBeTruthy()
+        Helper.logsData("modal is displayed when about us button pressed"+" "+ await results)
     })
 
     it('Check if the modal is displayed when the login button is pressed', async () => {
         let home = new Home()
         let results = await home.modalIsDisplayed(home.loginButton)
         expect(results).toBeTruthy()
+        Helper.logsData("modal is displayed when login button pressed"+" "+ await results)
     })
     
-    it('Check if the modal is displayed when the about us button is pressed', async () => {
+    it('Check if the modal is displayed when the sign up button is pressed', async () => {
         let home = new Home()
         let results = await home.modalIsDisplayed(home.signUp)
         expect(results).toBeTruthy()
+        Helper.logsData("modal is displayed when sign up button pressed"+" "+ await results)
     })
 
     it('Check for the popup message after sending message from contact button', async () => {
@@ -74,6 +82,7 @@ describe('Home Page e2e', async  () => {
         await home.contactFlow({email : "test@test.com", name : "testName", message : "testMessage"})
         await browser.switchTo().alert().getText().then(data => {
             expect(data).toBe("Thanks for the message!!")
+            Helper.logsData("sending message from contact button"+" "+ data)
         })
         await browser.switchTo().alert().accept()
     })
@@ -82,6 +91,7 @@ describe('Home Page e2e', async  () => {
         let home = new Home()
         await home.cartButton.click()
         expect(await browser.getCurrentUrl()).toContain("cart")
+        Helper.logsData(await browser.getCurrentUrl())
     })
 
     it('Check the popup when no login details are added', async () => {
@@ -89,15 +99,17 @@ describe('Home Page e2e', async  () => {
         await home.loginFlow({name: "", password: ""});
         await browser.switchTo().alert().getText().then(data => {
             expect(data).toBe("Please fill out Username and Password.")
+            Helper.logsData("No login details are added"+" "+ data)
         })
         await browser.switchTo().alert().accept()
     })
 
-    fit('Check the popup when there is login info passed', async () => {
+    it('Check the popup when there is login info passed', async () => {
         let home = new Home()
         await home.loginFlow({name: "testName", password: "testPassword"});
         await browser.switchTo().alert().getText().then(data => {
             expect(data).toBe("User does not exist.")
+            Helper.logsData("Login details are added"+" "+ data)
         })
         await browser.switchTo().alert().accept()
     })
