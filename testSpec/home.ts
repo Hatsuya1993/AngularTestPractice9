@@ -92,4 +92,13 @@ describe('Home Page e2e', async  () => {
         })
         await browser.switchTo().alert().accept()
     })
+
+    fit('Check the popup when there is login info passed', async () => {
+        let home = new Home()
+        await home.loginFlow({name: "testName", password: "testPassword"});
+        await browser.switchTo().alert().getText().then(data => {
+            expect(data).toBe("User does not exist.")
+        })
+        await browser.switchTo().alert().accept()
+    })
 })
