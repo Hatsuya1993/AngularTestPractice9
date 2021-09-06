@@ -4,6 +4,9 @@ import {Helper} from '../helper/helper'
 
 describe('Home Page e2e', async  () => {
 
+    let existName = ""
+    let existPassword = ""
+
     beforeEach(async() => {
         browser.waitForAngularEnabled(false);
         let home = new Home()
@@ -120,6 +123,16 @@ describe('Home Page e2e', async  () => {
         await browser.switchTo().alert().getText().then(data => {
             expect(data).toBe("Please fill out Username and Password.")
             Helper.logsData("Signup details are not added"+" "+ data)
+        })
+        await browser.switchTo().alert().accept()
+    })
+
+    it('Check the popup when this is signup info', async () => {
+        let home = new Home()
+        await home.signUpFlow({name: "testName"+Math.random(), password: "testPassword"+Math.random()})
+        await browser.switchTo().alert().getText().then(data => {
+            expect(data).toBe("Sign up successful.")
+            Helper.logsData("Signup details are added"+" "+ data)
         })
         await browser.switchTo().alert().accept()
     })
