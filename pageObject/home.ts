@@ -7,7 +7,7 @@ interface contactInfo {
     message: string;
 }
 
-interface loginInfo {
+interface loginSignUpInfo {
     name: string;
     password: string;
 }
@@ -35,6 +35,9 @@ export class Home {
     loginName : ElementFinder = $("#loginusername")
     loginPassword : ElementFinder = $("#loginpassword")
     loginButtonConfirm : ElementFinder = element(by.buttonText("Log in"))
+    signUpUsername : ElementFinder = $("#sign-username")
+    signUpPassword : ElementFinder = $("#sign-password")
+    signUpButtonConfirm : ElementFinder = element(by.buttonText("Sign up"))
 
     async countTheNumberOfElements(data : ElementArrayFinder | any) {
         await browser.sleep(3000)
@@ -65,7 +68,7 @@ export class Home {
         await browser.sleep(3000);
     }
 
-    async loginFlow(data: loginInfo) {
+    async loginFlow(data: loginSignUpInfo) {
         await this.loginButton.click()
         await browser.sleep(3000);
         await browser.wait(until.presenceOf(this.loginName), 5000, 'loginName taking too long to appear in the DOM')
@@ -73,6 +76,17 @@ export class Home {
         await browser.wait(until.presenceOf(this.loginPassword), 5000, 'loginPassword taking too long to appear in the DOM')
         await this.loginPassword.sendKeys(data.password)
         await this.loginButtonConfirm.click()
+        await browser.sleep(3000);
+    }
+
+    async signUpFlow(data: loginSignUpInfo){
+        await this.signUp.click()
+        await browser.sleep(3000);
+        await browser.wait(until.presenceOf(this.signUpUsername), 5000, 'signUpUsername taking too long to appear in the DOM')
+        await this.signUpUsername.sendKeys(data.name)
+        await browser.wait(until.presenceOf(this.signUpPassword), 5000, 'signUpPassword taking too long to appear in the DOM')
+        await this.signUpPassword.sendKeys(data.password)
+        await this.signUpButtonConfirm.click()
         await browser.sleep(3000);
     }
 

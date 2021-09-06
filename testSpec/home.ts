@@ -113,4 +113,14 @@ describe('Home Page e2e', async  () => {
         })
         await browser.switchTo().alert().accept()
     })
+
+    it('Check the popup when this is no signup info', async () => {
+        let home = new Home()
+        await home.signUpFlow({name: "", password: ""})
+        await browser.switchTo().alert().getText().then(data => {
+            expect(data).toBe("Please fill out Username and Password.")
+            Helper.logsData("Signup details are not added"+" "+ data)
+        })
+        await browser.switchTo().alert().accept()
+    })
 })
