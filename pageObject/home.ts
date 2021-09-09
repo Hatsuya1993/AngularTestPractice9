@@ -39,6 +39,7 @@ export class Home {
     signUpPassword : ElementFinder = $("#sign-password")
     signUpButtonConfirm : ElementFinder = element(by.buttonText("Sign up"))
     welcomeUser : ElementFinder = $("#nameofuser")
+    logoutUser : ElementFinder = $("#logout2")
 
     async countTheNumberOfElements(data : ElementArrayFinder | any) {
         await browser.sleep(3000)

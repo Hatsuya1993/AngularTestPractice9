@@ -127,7 +127,7 @@ describe('Home Page e2e', async  () => {
         await browser.switchTo().alert().accept()
     })
 
-    fit('Check the popup when this is signup info', async () => {
+    it('Check the popup when this is signup info', async () => {
         let home = new Home()
         existName = "testName"+Math.random()
         existPassword = "testPassword"+Math.random()
@@ -139,10 +139,17 @@ describe('Home Page e2e', async  () => {
         await browser.switchTo().alert().accept()
     })
 
-    fit('Check the popup when users details are passes', async () => {
+    it('Check the popup when users details are passes', async () => {
         let home = new Home()
         await home.loginFlow({name: existName, password: existPassword})
         expect(await home.welcomeUser.getText()).toBe("Welcome "+existName)
+    })
+
+    it('Check after use logs out, button should be login now', async () => {
+        let home = new Home()
+        await home.loginFlow({name: existName, password: existPassword})
+        await home.logoutUser.click()
+        expect(await home.loginButton.getText()).toBe("Log in")
     })
 
 
