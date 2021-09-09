@@ -64,3 +64,5 @@
 [2021-09-09T08:52:36.555] [DEBUG] default - Signup details are added Sign up successful.
 [2021-09-09T08:53:21.846] [DEBUG] default - Signup details are added Sign up successful.
 [2021-09-09T08:53:52.439] [DEBUG] default - Signup details are added Sign up successful.
+[2021-09-10T07:13:38.599] [DEBUG] default - Login details are added User does not exist.
+[2021-09-10T07:14:22.256] [DEBUG] default - Login details are added User does not exist.

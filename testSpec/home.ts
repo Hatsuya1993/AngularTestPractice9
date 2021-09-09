@@ -145,12 +145,21 @@ describe('Home Page e2e', async  () => {
         expect(await home.welcomeUser.getText()).toBe("Welcome "+existName)
     })
 
-    it('Check after use logs out, button should be login now', async () => {
+    it('Check after user logs out, button should be login now', async () => {
         let home = new Home()
         await home.loginFlow({name: existName, password: existPassword})
         await home.logoutUser.click()
         expect(await home.loginButton.getText()).toBe("Log in")
     })
 
+    it('Check if the wrong details are passed in for user', async () => {
+        let home = new Home()
+        await home.loginFlow({name: "wrong", password: "wrong"});
+        await browser.switchTo().alert().getText().then(data => {
+            expect(data).toBe("User does not exist.")
+            Helper.logsData("Login details are added"+" "+ data)
+        })
+        await browser.switchTo().alert().accept()
+    })
 
 })
